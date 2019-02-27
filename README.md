@@ -9,6 +9,7 @@ See it in action:
 - Settings to customize output fields and interface names
 - Supports multiple SharePoint environments (SharePoint Online, SharePoint on-premises starting from 2013 version)
 - easily integrates in your SharePoint development process 
+- based on [sp-type-item](https://github.com/s-KaiNet/sp-typed-item) node.js module
 
 ## Available commands 
 The following commands are available:
