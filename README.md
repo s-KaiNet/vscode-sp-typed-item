@@ -1,0 +1,1 @@
+# vscode-sp-typed-item
