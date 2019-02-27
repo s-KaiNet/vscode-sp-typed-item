@@ -3,8 +3,8 @@ import * as path from 'path';
 import * as fs from 'fs';
 import { IAuthOptions } from 'node-sp-auth';
 import { AuthConfig } from 'node-sp-auth-config';
-
 import { Config, JsonSchemaValidator } from 'sp-typed-item';
+
 import { VSCodeConfig } from '../Common/VSCodeConfig';
 import { ConfigNotFoundError } from '../Common/ConfigNotFoundError';
 import { EXTENSION_KEY } from '../Common/Consts';

@@ -1,10 +1,23 @@
 {
 	"name": "sharepoint-typed-item",
 	"displayName": "SharePoint Typed Item",
-	"description": "Generates strongly typed interfaces based on SharePoint data",
+	"description": "Generates TypeScript interfaces based on SharePoint data",
 	"version": "0.0.1",
 	"author": "Sergei Sergeev <sergeev.srg@gmail.com> (https://github.com/s-KaiNet)",
 	"license": "MIT",
+	"keywords": [
+		"SharePoint",
+		"Office 365"
+	],
+	"homepage": "https://github.com/s-KaiNet/vscode-sp-typed-item",
+	"bugs": {
+		"url": "https://github.com/s-KaiNet/vscode-sp-typed-item/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/s-KaiNet/vscode-sp-typed-item.git"
+	},
+	"publisher": "s-kainet",
 	"engines": {
 		"vscode": "^1.31.0"
 	},
@@ -231,6 +244,7 @@
 		"@types/pify": "3.0.2",
 		"node-sp-auth-config": "2.6.1",
 		"pify": "4.0.1",
-		"rimraf": "2.6.3"
+		"rimraf": "2.6.3",
+		"sp-typed-item": "0.0.2"
 	}
 }
