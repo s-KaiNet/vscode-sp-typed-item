@@ -1,0 +1,236 @@
+{
+	"name": "sharepoint-typed-item",
+	"displayName": "SharePoint Typed Item",
+	"description": "Generates strongly typed interfaces based on SharePoint data",
+	"version": "0.0.1",
+	"author": "Sergei Sergeev <sergeev.srg@gmail.com> (https://github.com/s-KaiNet)",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.31.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"workspaceContains:**/sp-typed-item*.json",
+		"workspaceContains:**/sp.typed.item*.json",
+		"onCommand:sp-typed-item.generate",
+		"onCommand:sp-typed-item.resetWorskpace",
+		"onCommand:sp-typed-item.clearCredentials"
+	],
+	"main": "./out/extension.js",
+	"icon": "assets/sp-typed-item-logo.png",
+	"contributes": {
+		"configuration": [
+			{
+				"title": "SharePoint Typed Item Configuration",
+				"type": "object",
+				"properties": {
+					"sp-typed-item.config": {
+						"type": "array",
+						"title": "SharePoint Typed Item Configuration Root",
+						"description": "Contains array of SharePoint Typed Item configuration.",
+						"items": {
+							"type": "object",
+							"title": "SharePoint Typed Item Configuration",
+							"description": "Describes configuration for SharePoint Typed Item extension.",
+							"required": [
+								"siteUrl",
+								"outputPath"
+							],
+							"properties": {
+								"siteUrl": {
+									"type": "string",
+									"default": "",
+									"description": "The url to your SharePoint site.",
+									"examples": [
+										"https://your-tenant.sharepoint.com/sites/your-site"
+									]
+								},
+								"authConfigPath": {
+									"type": "string",
+									"default": "",
+									"description": "The path to your node-sp-auth-config json configuration file. The path is relative to your workspace root folder. For more info check out https://github.com/koltyakov/node-sp-auth-config.",
+									"examples": [
+										"./config/private.auth.json"
+									]
+								},
+								"outputPath": {
+									"type": "string",
+									"default": "",
+									"description": "The path to a folder, where all generated files will be saved. The path is relative to your workspace root folder.",
+									"examples": [
+										"./src/Generated"
+									]
+								},
+								"lists": {
+									"type": "array",
+									"description": "Defines exact lists to process. Interfaces will be generated based on the lists config.",
+									"items": {
+										"type": "object",
+										"required": [
+											"url"
+										],
+										"properties": {
+											"url": {
+												"type": "string",
+												"default": "",
+												"description": "List relative url.",
+												"examples": [
+													"Lists/MyList"
+												]
+											},
+											"fileName": {
+												"type": "string",
+												"default": "",
+												"description": "Provide custom typescript file name for the specific list.",
+												"examples": [
+													"MyList.ts"
+												]
+											},
+											"fields": {
+												"type": "object",
+												"description": "Field configuration allows you to have more granular control over generated interface.",
+												"properties": {
+													"excludeHidden": {
+														"type": "boolean",
+														"description": "Whether to exclude hidden fields from generated interface.",
+														"default": false,
+														"examples": [
+															true
+														]
+													},
+													"exclude": {
+														"type": "array",
+														"description": "Excludes specific fields by InternalName",
+														"items": {
+															"type": "string",
+															"default": "",
+															"examples": [
+																"Title"
+															]
+														}
+													}
+												}
+											}
+										}
+									}
+								},
+								"contentTypes": {
+									"type": "array",
+									"description": "Defines exact content types to process. Interfaces will be generated based on the content types config.",
+									"items": {
+										"type": "object",
+										"required": [
+											"id"
+										],
+										"properties": {
+											"id": {
+												"type": "string",
+												"description": "Content Type Id.",
+												"default": "",
+												"examples": [
+													"0x010003309D4CBF56C446AC476C013FF5D59"
+												]
+											},
+											"fileName": {
+												"type": "string",
+												"description": "Provide custom typescript file name for the specific list.",
+												"default": "",
+												"examples": [
+													"MyItem.ts"
+												]
+											},
+											"fields": {
+												"type": "object",
+												"description": "Field configuration allows you to have more granular control over generated interface.",
+												"properties": {
+													"excludeHidden": {
+														"type": "boolean",
+														"description": "Whether to exclude hidden fields from generated interface.",
+														"default": false,
+														"examples": [
+															true
+														]
+													},
+													"exclude": {
+														"type": "array",
+														"description": "Excludes specific fields by InternalName",
+														"items": {
+															"type": "string",
+															"default": "",
+															"examples": [
+																"Title"
+															]
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"sp-typed-item.configPath": {
+						"type": "string",
+						"default": null,
+						"examples": [
+							"./config/sp-typed-item.json"
+						],
+						"description": "The path to your SharePoint Typed Item configuration file"
+					}
+				}
+			}
+		],
+		"jsonValidation": [
+			{
+				"fileMatch": "**/sp-typed-item*.json",
+				"url": "./node_modules/sp-typed-item/schemas/sp-typed-item.schema.json"
+			},
+			{
+				"fileMatch": "**/sp.typed.item*.json",
+				"url": "./node_modules/sp-typed-item/schemas/sp-typed-item.schema.json"
+			}
+		],
+		"commands": [
+			{
+				"command": "sp-typed-item.generate",
+				"title": "Generate interfaces",
+				"category": "SharePoint Typed Item"
+			},
+			{
+				"command": "sp-typed-item.resetWorskpace",
+				"title": "Reset workspace credentials",
+				"category": "SharePoint Typed Item"
+			},
+			{
+				"command": "sp-typed-item.clearCredentials",
+				"title": "Clear all credentials",
+				"category": "SharePoint Typed Item"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.42",
+		"@types/node": "^8.10.25",
+		"node-sp-auth": "2.5.7",
+		"tslint": "^5.8.0",
+		"tslint-config-standard": "^8.0.1",
+		"typescript": "^3.1.4",
+		"vscode": "^1.1.25"
+	},
+	"dependencies": {
+		"@types/pify": "3.0.2",
+		"node-sp-auth-config": "2.6.1",
+		"pify": "4.0.1",
+		"rimraf": "2.6.3"
+	}
+}

@@ -1,0 +1,32 @@
+{
+	"extends": [
+		"tslint-config-standard"
+	],
+	"rules": {
+		"semicolon": [
+			true,
+			"always"
+		],
+		"await-promise": [
+			true,
+			"Bluebird"
+		],
+		"space-before-function-paren": [
+			false
+		],
+		"ter-indent": [
+			false
+		],
+		"no-inferrable-types": true,
+		"strict-type-predicates": false,
+		"indent": [
+			true,
+			"spaces",
+			2
+		],
+		"no-console": true
+	},
+	"linterOptions": {
+		"exclude": ["**/*.d.ts"]
+	}
+}
