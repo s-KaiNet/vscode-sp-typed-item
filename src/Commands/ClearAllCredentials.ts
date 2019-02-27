@@ -4,7 +4,7 @@ import * as pify from 'pify';
 
 import { Command } from './Command';
 import { getUserDataFolder } from '../Common/Utils';
-import { LogManager } from '../../../lib';
+import { LogManager } from 'sp-typed-item';
 
 export class ClearAllCredentials extends Command {
     constructor(context: vscode.ExtensionContext) {

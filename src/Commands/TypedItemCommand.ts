@@ -36,7 +36,8 @@ export abstract class TypedItemCommand extends Command {
         }
 
         if (configuration.config && configuration.config.length > 0) {
-            this.config = configuration.config[0];
+            // vscode caches configs
+            this.config = JSON.parse(JSON.stringify(configuration.config[0]));
         } else {
             let workspace = vscode.workspace.workspaceFolders[0];
             let configPath = path.resolve(workspace.uri.fsPath, configuration.configPath);
