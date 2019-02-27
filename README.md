@@ -1,7 +1,5 @@
 # SharePoint Typed Item for Visual Studio Code
 
-Generates TypeScript interfaces based on SharePoint data.
-
 See it in action:   
 
 ![in action](/assets/sp-typed-item.gif)  
@@ -34,14 +32,13 @@ This extension contributes the following settings:
    - `sp-type-item.config.json`: in your workspace create a file with `sp-type-item.config.json` name and add configuration for the extension inside. Open `.vscode/settings.json` (refer above to know how to create it if it's missing) and add new configuration option: `"sp-typed-item.configPath": "sp-type-item.config.json"`
 3. Press `F1`, type `SharePoint` and select `SharePoint Typed Item: Generate interfaces`. If you run for the first time, the extension will ask you for authentication information. Fill in all information and in the very end your interfaces will be generated under specified location.     
 
-   > **NOTE:** You can provide custom authentication file generated with help of [node-sp-auth-config](https://github.com/koltyakov/node-sp-auth-config) tool. In that case specify a path to your auth file with `authConfigPath` config option. In that case vscode will not ask you for credentials.
+   > **NOTE:** You can provide custom authentication file generated with help of [node-sp-auth-config](https://github.com/koltyakov/node-sp-auth-config) tool. In that case specify a path to your auth file with `authConfigPath` config option (workspace-relative). In that case vscode will not ask you for credentials.
 
 ## Configuration file  
 
 `sp-typed-item` configuration file holds essential information about environment and interface generation settings. 
 
 ### Example file with all possible settings: 
-<details><summary>Click to expand</summary>  
 
 ```json
 [
@@ -78,7 +75,6 @@ This extension contributes the following settings:
   }
 ]
 ```  
-</details>  
 
 #### Root element
 Array of configuration items. Currently CLI and VSCode extension support only one configuration element. Multiple elements support might come in future.

@@ -2,7 +2,7 @@
 	"name": "sharepoint-typed-item",
 	"displayName": "SharePoint Typed Item",
 	"description": "Generates TypeScript interfaces based on SharePoint data",
-	"version": "0.0.1",
+	"version": "0.0.3",
 	"author": "Sergei Sergeev <sergeev.srg@gmail.com> (https://github.com/s-KaiNet)",
 	"license": "MIT",
 	"keywords": [
