@@ -24,7 +24,10 @@ This extension contributes the following settings:
 * `sp-typed-item.config`: configuration object for the extension, holds essential information about site, lists, content type and generator settings
 * `sp-typed-item.configPath`: path to the external json configuration file for the extension
 
-## How to configure
+## How to use it 
+
+Go through the steps below or read more detailed [article](https://spblog.net/post/2019/02/28/introducing-sharepoint-typed-item-visual-studio-code-extension) in my blog.
+
 1. Install the extension.
 2. Provide configuration file for the extension. You have two options here. You can either use vscode `settings.json` file or create a separate `sp-type-item.config.json` file. In both cases you will receive intellisense from vscode for all configuration keys.    
  
@@ -112,3 +115,7 @@ Minimal working configuration file:
   }
 ]
 ```  
+
+
+## How to get in touch
+This project is open-sourced and uses GitHub. Please use [GitHub issues](https://github.com/s-KaiNet/vscode-sp-typed-item/issues) for questions, feedback and bug reports. 
