@@ -2,7 +2,7 @@
 	"name": "sharepoint-typed-item",
 	"displayName": "SharePoint Typed Item",
 	"description": "Generates TypeScript interfaces based on SharePoint data",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"author": "Sergei Sergeev <sergeev.srg@gmail.com> (https://github.com/s-KaiNet)",
 	"license": "MIT",
 	"keywords": [
@@ -242,9 +242,9 @@
 	},
 	"dependencies": {
 		"@types/pify": "3.0.2",
-		"node-sp-auth-config": "2.6.1",
+		"node-sp-auth-config": "^2.6.2",
 		"pify": "4.0.1",
 		"rimraf": "2.6.3",
-		"sp-typed-item": "0.0.2"
+		"sp-typed-item": "0.0.3"
 	}
 }
