@@ -1,5 +1,8 @@
 # Change Log
 
+## 0.0.6 - 28 Mar 2019
+- Updated dependencies
+
 ## 0.0.5 - 28 Mar 2019
 - Added support for location, rating and likes fields
 
